@@ -1,3 +1,6 @@
+Goal: The goal of the application is to make flight school students familiar with the cockpit controls so that they don't get overwhelmed when they graduate to high-tech simulators or actual aircraft. This application helps the students to learn abour the controls and their functionalities on the computer. The application contains 2 modes: Learning mode and Test mode, which help the user to learn about the controls and test themselves as well.
+
+
 1) Link for the web appilcation: https://www.cs.drexel.edu/~ss4455/Project/
 
 2) JavaScript must be enabled
