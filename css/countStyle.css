@@ -1,0 +1,21 @@
+#submit{
+		position:absolute;
+		width:50%;
+		top:50%;
+		left:25%;
+}
+
+.col-12{
+	position: fixed;
+  top: 30%;
+  left: 50%;
+
+  margin-left: -100px;
+}
+
+#quit{
+	position: absolute;
+	top:0;
+	right:0;
+	width: 30%;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/countStyle.css"/>
+<script type="text/javascript">
+var timeleft = 10;
+var downloadTimer = setInterval(function(){
+  document.getElementById("progressBar").value = 10 - --timeleft;
+  if(timeleft <= 0){
+	window.location.href='test.html';
+    clearInterval(downloadTimer);
+	}
+},1000);
+</script>
+</head>
+<body>
+<div align="center" class="container-fluid">
+	<div class="row">
+		<div class="col-12">
+		<p id="timeText">Test starts in (in Seconds):</p>
+		<progress value="0" max="10" id="progressBar"></progress>
+		</div>
+	</div>
+	</div>
+	<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete" id="quit" onclick="window.location.href='index.html'">Quit</button>
+
+	<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r" id="submit" onclick="window.location.href='test.html'">Start</button>
+</body>
+</html>

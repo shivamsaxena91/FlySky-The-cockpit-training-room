@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/learnstyle.css"/>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+</head>
+<body>
+
+<div class="container-fluid">
+<div class="row">
+		<div class="col-1"><button class="back" onclick="location.href='index.html';">Back</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+		<img src="../images/navigation controls.jpg" id="img1" alt="Smiley face">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4">
+		<img src="../images/altitude indicator2.png" id="img2" alt="Smiley face">
+		</div>
+		<div class="col-4">
+		<img src="../images/direction finder2.png" id="img3" alt="Smiley face">
+		</div>
+		<div class="col-4">
+		<img src="../images/primary flight display2.png" id="img4" alt="Smiley face">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4">
+		<img src="../images/control wheel 1.jpg" id="img5" alt="Smiley face">
+		</div>
+		<div class="col-4">
+		<img src="../images/radar display2.png" id="img6" alt="Smiley face">
+		</div>
+		<div class="col-4">
+		<img src="../images/control wheel 2.jpg" id="img7" alt="Smiley face">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4">
+		<img src="../images/system information display2.jpg" id="img8" alt="Smiley face">
+		</div>
+		<div class="col-4">
+		<img src="../images/primary flight display.jpg" id="img9" alt="Smiley face">
+		</div>
+		<div class="col-4">
+		<img src="../images/brake pedals.png" id="img10" alt="Smiley face">
+		</div>
+	</div>
+</div>
+<!-- Button trigger modal -->
+<button id="modal_button" type="button" class="btn btn-primary invisible" data-toggle="modal" data-target="#myModal">
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../scripts/tether.js"></script>
+<script src="../scripts/popper.js"></script>
+<script src="../scripts/bootstrap.js"></script>
+<script type="text/javascript">
+    $( function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+    });
+	
+	var img_arr = ["#img1", "#img2", "#img3", "#img4", "#img5", "#img6", "#img7", "#img8", "#img9", "#img10"];
+	
+	var info_arr = {
+		"img1":"MCP[edit] A mode control panel, usually a long narrow panel located centrally in front of the pilot, may be used to control heading, speed, altitude, vertical speed, vertical navigation and lateral navigation. It may also be used to engage or disengage both the autopilot and the autothrottle. The panel as an area is usually referred to as the glareshield panel. MCP is a Boeing designation (that has been informally adopted as a generic name for the unit/panel) for a unit that allows for the selection and parameter setting of the different autoflight functions, the same unit on an Airbus aircraft is referred to as the FCU (Flight Control unit).",
+		"img2": "Altitude indicator: An attitude indicator (AI), also known as gyro horizon or artificial horizon or attitude director indicator (ADI, when it has a Flight Director), is an instrument used in an aircraft to inform the pilot of the orientation of the aircraft relative to Earth's horizon. It indicates pitch (fore and aft tilt) and bank (side to side tilt) and is a primary instrument for flight in instrument meteorological conditions.The essential components of the indicator are:miniature airplane, horizontal lines with a dot between them representing the actual wings and nose of the aircraft. the center horizon bar separating the two halves of the display, with the top half usually blue in color to represent sky and the bottom half usually dark to represent earth. degree indices marking the bank angle. They run along the edge of the dial. On a typical indicator, there is a zero angle of bank index, there may be 10 and 20 degree indices, with additional indices at 30, 60 and 90 degrees. If the symbolic aircraft dot is above the horizon line (blue background) the aircraft is nose up. If the symbolic aircraft dot is below the horizon line (brown background) the aircraft is nose down. The fact that the horizon moves up and down and turns, while the symbolic aircraft is fixed relative to the rest of the instrument panel, tends to induce confusion in trainees learning to use the instrument; a standard mental corrective provided by flight instructors is Fly the little airplane, not the horizon.",
+		"img3": "Direction finder: One of the older types of radio navigation is the automatic direction finder (ADF) or non-directional beacon (NDB). The ADF receiver, a backup system for the VHF equipment, can be used when line-of-sight transmission becomes unreliable or when there is no VOR equipment on the ground or in the aircraft. It is used as a means of identifying positions, receiving low and medium frequency voice communications, homing, tracking, and for navigation on instrument approach procedures. The low/medium frequency navigation stations used by ADF include non-directional beacons, ILS radio beacon locators, and commercial broadcast stations. Because commercial broadcast stations normally are not used in navigation, this section will deal only with the non-directional beacon and ILS radio beacon. A non-directional radio beacon (NDB) is classed according to its power output and usage: the L radio beacon has a power of less than 50 watts (W), the M classification of radio, beacon has a power of 50 watts up to 2,000 W; the H radio beacon has a power output of 2,000 W or more; the ILS radio beacon is a beacon which is placed at the same position as the outer marker of an ILS system (or replaces the OM).",
+		"img4": "Primary flight display: A primary flight display or PFD is a modern aircraft instrument dedicated to flight information. Much like multi-function displays, primary flight displays are built around an Liquid-crystal display or CRT display device. Representations of older six pack or steam gauge instruments are combined on one compact display, simplifying pilot workflow and streamlining cockpit layouts. MOn the flight deck, the display units are the most obvious parts of an EFIS system, and are the features that lead to the term glass cockpit. The display unit that replaces the ADI is called the primary flight display (PFD). If a separate display replaces the HSI, it is called the navigation display. The PFD displays all information critical to flight, including calibrated airspeed, altitude, heading, attitude, vertical speed and yaw. The PFD is designed to improve a pilot's situational awareness by integrating this information into a single display instead of six different analog instruments, reducing the amount of time necessary to monitor the instruments. PFDs also increase situational awareness by alerting the aircrew to unusual or potentially hazardous conditions — for example, low airspeed, high rate of descent — by changing the color or shape of the display or by providing audio alerts. The names Electronic Attitude Director Indicator and Electronic Horizontal Situation Indicator are used by some manufacturers. However, a simulated ADI is only the centerpiece of the PFD. Additional information is both superimposed on and arranged around this graphic. Multi-function displays can render a separate navigation display unnecessary. Another option is to use one large screen to show both the PFD and navigation display. The PFD and navigation display (and multi-function display, where fitted) are often physically identical. The information displayed is determined by the system interfaces where the display units are fitted. Thus, spares holding is simplified: the one display unit can be fitted in any position. LCD units generate less heat than CRTs; an advantage in a congested instrument panel. They are also lighter, and occupy a lower volume.",
+		"img5": "Control Wheel: For pilot 1, A yoke, alternatively known as a control wheel is a device used for piloting some fixed-wing aircraft.[1] The pilot uses the yoke to control the attitude of the plane, usually in both pitch and roll. Rotating the control wheel controls the ailerons and the roll axis. Fore and aft movement of the control column controls the elevator and the pitch axis.[1] When the yoke is pulled back the nose of the aircraft rises. When the yoke is pushed forward the nose is lowered. When the yoke is turned left the plane rolls to the left and when it is turned to the right the plane rolls to the right. Small to medium-size aircraft, usually limited to propeller driven, feature a mechanical system whereby the yoke is connected directly to the control surfaces with cables and rods. Human muscle power alone is not enough for larger and more powerful aircraft, so hydraulic systems are used, in which yoke movements control hydraulic valves and actuators. In more modern aircraft, inputs may first be sent to a fly-by-wire system, which then sends a corresponding signal to actuators attached to the control surfaces. Yokes may feature a stick shaker, which is designed to help indicate the onset of stall, or even a stick pusher, which assists in stall recovery.",
+		"img6": "Radar display: A radar display is an electronic device to present radar data to the operator. The radar system transmits pulses or continuous waves of electromagnetic radiation, a small portion of which backscatter off targets (intended or otherwise) and return to the radar system. The receiver converts all received electromagnetic radiation into a continuous electronic analog signal of varying (or oscillating) voltage that can be converted then to a screen display. Modern systems typically use some sort of raster scan display to produce a map-like image. Early in radar development, however, numerous circumstances made such displays difficult to produce. People ultimately developed several different display types.",
+		"img7": "Control Wheel: For pilot 2, A yoke, alternatively known as a control wheel is a device used for piloting some fixed-wing aircraft.[1] The pilot uses the yoke to control the attitude of the plane, usually in both pitch and roll. Rotating the control wheel controls the ailerons and the roll axis. Fore and aft movement of the control column controls the elevator and the pitch axis.[1] When the yoke is pulled back the nose of the aircraft rises. When the yoke is pushed forward the nose is lowered. When the yoke is turned left the plane rolls to the left and when it is turned to the right the plane rolls to the right. Small to medium-size aircraft, usually limited to propeller driven, feature a mechanical system whereby the yoke is connected directly to the control surfaces with cables and rods. Human muscle power alone is not enough for larger and more powerful aircraft, so hydraulic systems are used, in which yoke movements control hydraulic valves and actuators. In more modern aircraft, inputs may first be sent to a fly-by-wire system, which then sends a corresponding signal to actuators attached to the control surfaces. Yokes may feature a stick shaker, which is designed to help indicate the onset of stall, or even a stick pusher, which assists in stall recovery.",
+		"img8": "System information display: The Cockpit display systems (or CDS) provides the visible (and audible) portion of the Human Machine Interface (HMI) by which aircrew manage the modern Glass cockpit and thus interface with the aircraft avionics. Prior to the 1970s, cockpits did not typically use any electronic instruments or displays (see Glass cockpit history). Improvements in computer technology, the need for enhancement of situational awareness in more complex environments, and the rapid growth of commercial air transportation, together with continued military competitiveness, led to increased levels of integration in the cockpit. The average transport aircraft in the mid-1970s had more than one hundred cockpit instruments and controls, and the primary flight instruments were already crowded with indicators, crossbars, and symbols, and the growing number of cockpit elements were competing for cockpit space and pilot attention",
+		"img9": "Primary flight display: A primary flight display or PFD is a modern aircraft instrument dedicated to flight information. Much like multi-function displays, primary flight displays are built around an Liquid-crystal display or CRT display device. Representations of older six pack or steam gauge instruments are combined on one compact display, simplifying pilot workflow and streamlining cockpit layouts. MOn the flight deck, the display units are the most obvious parts of an EFIS system, and are the features that lead to the term glass cockpit. The display unit that replaces the ADI is called the primary flight display (PFD). If a separate display replaces the HSI, it is called the navigation display. The PFD displays all information critical to flight, including calibrated airspeed, altitude, heading, attitude, vertical speed and yaw. The PFD is designed to improve a pilot's situational awareness by integrating this information into a single display instead of six different analog instruments, reducing the amount of time necessary to monitor the instruments. PFDs also increase situational awareness by alerting the aircrew to unusual or potentially hazardous conditions — for example, low airspeed, high rate of descent — by changing the color or shape of the display or by providing audio alerts. The names Electronic Attitude Director Indicator and Electronic Horizontal Situation Indicator are used by some manufacturers. However, a simulated ADI is only the centerpiece of the PFD. Additional information is both superimposed on and arranged around this graphic. Multi-function displays can render a separate navigation display unnecessary. Another option is to use one large screen to show both the PFD and navigation display. The PFD and navigation display (and multi-function display, where fitted) are often physically identical. The information displayed is determined by the system interfaces where the display units are fitted. Thus, spares holding is simplified: the one display unit can be fitted in any position. LCD units generate less heat than CRTs; an advantage in a congested instrument panel. They are also lighter, and occupy a lower volume.",
+		"img10": "Brake Pedals: In an aircraft the brake pedals control the respective side brakes. This allows for the pilot to turn the aircraft not only with the pivoting nose wheel (if it has one) but also with the brakes. This allows for a very tight turning radius. If each pedals controls different sets of wheels eg the left wheels and the right wheels of the main gear, is that not a safety flaw rather than measure given that at any point in time, It is by design to allow for the tight turning. Some smaller aircraft also do not have a steerable nose wheel so differential braking is the only option."
+		}
+	
+	
+	$( "#opener" ).on( "click", function() {
+	  $( "#dialog" ).dialog( "open" );
+	});
+	
+	for(var i=0; i<img_arr.length;i++) {
+		$(img_arr[i]).on("mouseover", function() {
+			$(this).css('border', '3px solid red');
+		})
+		.on("mouseout", function() {
+			$(this).css('border', '');
+		})
+		.on("click", function() {
+			debugger;
+			$("#myModal .modal-body").empty().append(info_arr[$(this).attr('id')]);
+			
+			$('#modal_button').click();
+			//alert(info_arr[$(this).attr('id')]);
+		});
+	}
+  } );
+</script>
+
+</body>
+</html>

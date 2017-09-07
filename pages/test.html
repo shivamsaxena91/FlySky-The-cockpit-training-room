@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html ng-app="FlySky">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"> -->
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!-- <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="../css/teststyle.css"/>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+</head>
+<body ng-controller="testingAreaController">
+
+<div class="wrap">
+    <div class="floatleft">
+	<div class="container">
+	<div class="row" style="margin-top: 10px">
+		<div class="col-12">
+		<h3>Cockpit controls</h3>
+		</div>
+	</div>
+	<div class="row" style="margin-top: 5px">
+		<div class="col-12">
+		<img src="../images/navigation controls.jpg" class="nav_cont" id="img1" alt="Smiley face">
+		</div>
+	</div>
+	<div class="row" style="margin-top: 5px">
+		<div class="col-4">
+		<img src="../images/altitude indicator2.png" class="alt_ind" id="img2" alt="Smiley face">
+		</div>
+		<div class="col-4">
+		<img src="../images/direction finder2.png" class="dir_fin" id="img3" alt="Smiley face">
+		</div>
+		<div class="col-4">
+		<img src="../images/primary flight display2.png" class="pri_fli2" id="img4" alt="Smiley face">
+		</div>
+	</div>
+	<div class="row" style="margin-top: 5px">
+		<div class="col-4">
+		<img src="../images/control wheel 1.jpg" class="con_whe1" id="img5" alt="Smiley face">
+		</div>
+		<div class="col-4">
+		<img src="../images/radar display2.png" class="rad_dis" id="img6" alt="Smiley face">
+		</div>
+		<div class="col-4">
+		<img src="../images/control wheel 2.jpg" class="con_whe2" id="img7" alt="Smiley face">
+		</div>
+	</div>
+	<div class="row" style="margin-top:5px">
+		<div class="col-4">
+		<img src="../images/system information display2.jpg" class="sys_info" id="img8" alt="Smiley face">
+		</div>
+		<div class="col-4">
+		<img src="../images/primary flight display.jpg" class="pri_fli" id="img9" alt="Smiley face">
+		</div>
+		<div class="col-4">
+		<img src="../images/brake pedals.png" class="bra_ped" id="img10" alt="Smiley face">
+		</div>
+	</div>
+</div>
+	</div>
+    <div class="floatright">
+	<div class="container" ng-init="startTimer()">
+	<p id="timeText">Time (in Seconds):</p>
+	<progress value="0" max="10" id="progressBar"></progress>
+	<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete" id="quit" onclick="window.location.href='index.html'">Quit</button>
+	
+	<div class="row" id="question">
+		<div class="col-12" >
+		<b>Test {{test_no}}</b>
+		</div>
+		</div>
+	<div class="row" >
+		<div class="col-12" >
+		<p>{{ques}}</p>
+		</div>
+		</div>
+		
+		<div class="row" ng-mouseover="highlightImage($event)" ng-mouseout="unhighlightImage($event)">
+		<div class="col-12">
+		<input type="radio" id="switch_right" class="{{class1}}" name="mode" value="Test"/>
+      <label for="switch_right">{{option1}}</label>
+		</div>
+		</div>
+		
+		<div class="row" ng-mouseover="highlightImage($event)" ng-mouseout="unhighlightImage($event)">
+		<div class="col-12">
+		<input type="radio" id="switch_right1" class="{{class2}}" name="mode" value="Test1"/>
+      <label for="switch_right1">{{option2}}</label>
+		</div>
+		</div>
+		
+		<div class="row" ng-mouseover="highlightImage($event)" ng-mouseout="unhighlightImage($event)">
+		<div class="col-12">
+		<input type="radio" id="switch_right2" class="{{class3}}" name="mode" value="Test2"/>
+      <label for="switch_right2">{{option3}}</label>
+		</div>
+		</div>
+		
+		<div class="row" ng-mouseover="highlightImage($event)" ng-mouseout="unhighlightImage($event)">
+		<div class="col-12">
+		<input type="radio" id="switch_right3" class="{{class4}}" name="mode" value="Test3"/>
+      <label for="switch_right3">{{option4}}</label>
+		</div>
+		</div>
+		<div class="row">
+		<div class="col-12">
+		<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r" id="submit" ng-click="nextQuestion()">Submit</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+		
+		</div>
+	</div>
+	<!-- <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r" id="submit">Submit</button> -->
+	</div>
+	<p>Please don't press Back or Refresh button</p>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+		<button type="button" class="btn btn-secondary" data-dismiss="modal" id="agree_btn" ng-click="startTimer()">Start</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="disagree_btn" onclick="window.location.href='index.html'">Go to mode selection page</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<button id="modal_button" type="button" class="btn btn-primary invisible" data-toggle="modal" data-target="#myModal">
+</button>
+
+<script src="../scripts/tether.js"></script>
+<script src="../scripts/popper.js"></script>
+<script src="../scripts/bootstrap.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+<script type="text/javascript">
+
+var questions=[
+
+{
+"ques": "Which control is a primary instrument in meteorological conditions?",
+"opt1": "Altitude indicator",
+"opt2": "Primary flight display",
+"opt3": "Control wheel",
+"opt4": "Direction finder",
+"class1": "alt_ind",
+"class2": "pri_fli",
+"class3": "con_whe1",
+"class4": "dir_fin",
+"usr_ans": "",
+"sol": "Altitude indicator"
+},
+{
+"ques": "Which control uses low/medium frequency navigation stations?",
+"opt1": "Radar Display",
+"opt2": "Direction finder",
+"opt3": "Primary flight display",
+"opt4": "Altitude indicator",
+"class1": "rad_dis",
+"class2": "dir_fin",
+"class3": "pri_fli",
+"class4": "alt_ind",
+"usr_ans": "",
+"sol": "Direction finder"
+},
+{
+"ques": "Which control is informs about the orientation of the nose of the plane?",
+"opt1": "Direction Finder",
+"opt2": "Primary flight display",
+"opt3": "Altitude indicator",
+"opt4": "Radar Display",
+"class1": "dir_fin",
+"class2": "pri_fli",
+"class3": "alt_ind",
+"class4": "rad_dis",
+"usr_ans": "",
+"sol": "Altitude indicator"
+},
+{
+"ques": "The term Bank Angle is used by which control?",
+"opt1": "Navigation Control",
+"opt2": "Control Wheel",
+"opt3": "System information display",
+"opt4": "Altitude indicator",
+"class1": "nav_cont",
+"class2": "con_whe1",
+"class3": "sys_info",
+"class4": "alt_ind",
+"usr_ans": "",
+"sol": "Altitude indicator"
+},
+{
+"ques": "Which control uses low/medium frequency voice communication?",
+"opt1": "Direction finder",
+"opt2": "Primary flight display",
+"opt3": "Radar Display",
+"opt4": "System information display",
+"class1": "dir_fin",
+"class2": "pri_fli",
+"class3": "rad_dis",
+"class4": "sys_info",
+"usr_ans": "",
+"sol": "Direction finder"
+},
+{
+"ques": "Which control is the backup system for the VHF equipment?",
+"opt1": "Altitude indicator",
+"opt2": "Brake Pedals",
+"opt3": "System information display",
+"opt4": "Direction finder",
+"class1": "alt_ind",
+"class2": "bra_ped",
+"class3": "sys_info",
+"class4": "dir_fin",
+"usr_ans": "",
+"sol": "Direction finder"
+},
+{
+"ques": "Which control shows  airspeed, altitude, heading, attitude, vertical speed and yaw together?",
+"opt1": "Altitude indicator",
+"opt2": "Direction finder",
+"opt3": "Primary flight display",
+"opt4": "Control Wheel",
+"class1": "alt_ind",
+"class2": "dir_fin",
+"class3": "pri_fli",
+"class4": "con_whe1",
+"usr_ans": "",
+"sol": "Primary flight display"
+},
+{
+"ques": "Which control is also called Electronic Attitude Director Indicator and Electronic Horizontal Situation Indicator?",
+"opt1": "Control Wheel",
+"opt2": "Direction finder",
+"opt3": "Radar Display",
+"opt4": "Primary flight display",
+"class1": "con_whe1",
+"class2": "dir_fin",
+"class3": "rad_dis",
+"class4": "pri_fli",
+"usr_ans": "",
+"sol": "Primary flight display"
+},
+{
+"ques": "Which control is often identical to navigation display?",
+"opt1": "Radar Display",
+"opt2": "Control Wheel",
+"opt3": "Primary flight display",
+"opt4": "Direction finder",
+"class1": "rad_dis",
+"class2": "con_whe1",
+"class3": "pri_fli",
+"class4": "dir_fin",
+"usr_ans": "",
+"sol": "Primary flight display"
+},
+{
+"ques": "Which control is also called Yoke?",
+"opt1": "Altitude indicator",
+"opt2": "Control Wheel",
+"opt3": "Brake Pedals",
+"opt4": "Direction finder",
+"class1": "alt_ind",
+"class2": "con_whe1",
+"class3": "bra_ped",
+"class4": "dir_fin",
+"usr_ans": "",
+"sol": "Control Wheel"
+},
+{
+"ques": "Which control is used to control the altitude of the plane?",
+"opt1": "Brake Pedals",
+"opt2": "Altitude indicator",
+"opt3": "Direction finder",
+"opt4": "Control Wheel",
+"class1": "bra_ped",
+"class2": "alt_ind",
+"class3": "dir_fin",
+"class4": "con_whe1",
+"usr_ans": "",
+"sol": "Control Wheel"
+},
+{
+"ques": "Which control can also feature a stick shaker?",
+"opt1": "Brake Pedals",
+"opt2": "Altitude indicator",
+"opt3": "Direction finder",
+"opt4": "Control Wheel",
+"class1": "bra_ped",
+"class2": "alt_ind",
+"class3": "dir_fin",
+"class4": "con_whe1",
+"usr_ans": "",
+"sol": "Control Wheel"
+},
+{
+"ques": "Which control sends data to operator about transmitting pulses or continuous waves of electromagnetic radiation, a small portion of which backscatter off targets?",
+"opt1": "Brake Pedals",
+"opt2": "Altitude indicator",
+"opt3": "Radar Display",
+"opt4": "Control Wheel",
+"class1": "bra_ped",
+"class2": "alt_ind",
+"class3": "rad_dis",
+"class4": "con_whe1",
+"usr_ans": "",
+"sol": "Radar Display"
+},
+{
+"ques": "Which control provides information about modern Glass cockpit?",
+"opt1": "Altitude indicator",
+"opt2": "System information display",
+"opt3": "Radar Display",
+"opt4": "Control Wheel",
+"class1": "alt_ind",
+"class2": "sys_info",
+"class3": "rad_dis",
+"class4": "con_whe1",
+"usr_ans": "",
+"sol": "System information display"
+},
+{
+"ques": "Which controls allows Tight turning radius?",
+"opt1": "Altitude indicator",
+"opt2": "System information display",
+"opt3": "Brake Pedals",
+"opt4": "Control Wheel",
+"class1": "alt_ind",
+"class2": "sys_info",
+"class3": "bra_ped",
+"class4": "con_whe1",
+"usr_ans": "",
+"sol": "Brake Pedals"
+}
+]
+
+
+
+var flysky_app = angular.module("FlySky", []).controller("testingAreaController", ["$scope", function($scope) {
+	$scope.option1 = "";
+	$scope.option2 = "";
+	$scope.option3 = "";
+	$scope.option4 = "";
+	$scope.class1 = "";
+	$scope.class2 = "";
+	$scope.class3 = "";
+	$scope.class4 = "";
+	$scope.ques = "";
+	$scope.user_ans = "";
+	$scope.solution = "";
+	$scope.question_no = 0;
+	$scope.test_no = 1;
+	var downloadTimer;
+	
+	$scope.highlightImage = function(e) {
+	
+	$('img.'+$(e.target).parent().find('input').attr('class')).addClass('highlight');
+	}
+	$scope.unhighlightImage = function(e) {
+	$('.highlight').removeClass('highlight');
+	}
+	
+	$scope.nextQuestion = function() {
+		questions[$scope.question_no - 1].usr_ans = $('input[name="mode"]:checked').siblings().text().trim();
+		$('input[name="mode"]:checked').prop("checked",false);
+		clearInterval(downloadTimer);
+		document.getElementById("progressBar").value = 0;
+		
+		if(($scope.question_no) % 5 == 0) {
+			if(!$scope.performEvaluation()) {
+				$("#myModal .modal-body").empty().append("You failed the test ");
+				$("#agree_btn").hide();
+				$("#disagree_btn").show();
+				
+				$("#modal_button").click();
+				return;
+			}
+			else {
+				if($scope.question_no /5 < 3){
+				$("#myModal .modal-body").empty().append("you passed! More " + (3 - $scope.question_no /5) + " tests to go");
+				$scope.test_no++;
+				}
+				else {
+				$("#myModal .modal-body").empty().append("you passed!");
+				$("#agree_btn").text('Get certificate').click(function() {
+					window.location.href = "get_certificate.html";
+				});
+				}
+				$("#agree_btn").show();
+				$("#disagree_btn").hide();
+				$("#modal_button").click();
+				//$scope.startTimer();
+			}
+		}
+		else {
+			$scope.startTimer();
+		}
+	}
+	
+	$scope.updateQuestions = function() {	
+		var ques_no = $scope.question_no;
+		
+		if(questions[ques_no]) {
+			$scope.ques = questions[ques_no].ques;
+			$scope.option1 = questions[ques_no].opt1;
+			$scope.option2 = questions[ques_no].opt2;
+			$scope.option3 = questions[ques_no].opt3;
+			$scope.option4 = questions[ques_no].opt4;
+			$scope.class1 = questions[ques_no].class1;
+			$scope.class2 = questions[ques_no].class2;
+			$scope.class3 = questions[ques_no].class3;
+			$scope.class4 = questions[ques_no].class4;
+			$scope.question_no = $scope.question_no + 1;
+			
+			return true;
+		}
+		else false;
+	}
+	
+	$scope.performEvaluation = function () {
+		debugger;
+		var passed = true;
+		var startIndex = parseInt(($scope.question_no - 1) / 5) * 5;
+		for(var i = startIndex; i < startIndex + 5; i++) {
+			if(questions[i].usr_ans != questions[i].sol) {
+				passed = false;
+				break;
+			}
+		}
+		return passed;
+	}
+	
+	$scope.startTimer = function() {
+		var timeleft = 10;
+		$scope.updateQuestions();
+		downloadTimer = setInterval(function(){
+		  document.getElementById("progressBar").value = 10 - --timeleft;
+		  if(timeleft <= 0) {
+			questions[$scope.question_no - 1].usr_ans = $('input[name="mode"]:checked').siblings().text().trim();
+			$('input[name="mode"]:checked').prop("checked",false);
+			
+			if(($scope.question_no) % 5 == 0) {
+				if(!$scope.performEvaluation()) {
+					clearInterval(downloadTimer);
+					$("#myModal .modal-body").empty().append("You failed the test ");
+					$("#agree_btn").hide();
+					$("#disagree_btn").show();
+					$("#modal_button").click();
+					return;
+				}
+				else {
+					if($scope.question_no /5 < 3){
+					$("#myModal .modal-body").empty().append("you passed! More " + (3 - $scope.question_no /5) + " tests to go");
+					$scope.test_no++;
+					}
+					else {
+					$("#agree_btn").text('Get certificate').click(function() {
+						window.location.href = "get_certificate.html";
+					});
+					}
+					$("#agree_btn").show();
+					$("#disagree_btn").hide();
+					$("#modal_button").click();
+					if(!$scope.updateQuestions()) clearInterval(downloadTimer);
+				}
+				
+			}
+			
+			if(!$scope.updateQuestions()) clearInterval(downloadTimer);
+			else {
+				$scope.$digest();
+				document.getElementById("progressBar").value = 0;
+				timeleft = 10;
+			}
+		} 
+			
+		},1000);
+	}
+	
+}]);
+
+
+
+
+</script>
+</body>
+</html>

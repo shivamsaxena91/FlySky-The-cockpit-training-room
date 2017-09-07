@@ -1,0 +1,52 @@
+.wrap {
+width: 100%;
+}
+
+.floatleft {
+    float:left; 
+    width: 50%;
+    height: 100vh;
+}
+
+.floatright {
+float: right;
+    height: 100vh;
+    width: 50%;
+}
+
+#submit{
+	position: absolute;
+	top:70px;
+	width: 95.5%;
+}
+
+#quit{
+	position: absolute;
+	top:0;
+	right:10px;
+	width: 20%;
+}
+#img1 {
+	width: 100%;
+	height: 50px;
+}
+
+#img2, #img3, #img4, #img5, #img6, #img7, #img8, #img9, #img10 {
+	margin-top:5%;
+	width:100%;
+	height:150px;
+}
+#timeText{
+	margin-top:5%;
+}
+
+#progressBar{
+	margin-left:0%;
+}
+
+.highlight {
+	border: 3px solid red;
+}
+#question {
+	margin-top: 10%;
+}

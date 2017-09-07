@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> FlySky </title>
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/styling.css"/>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+<script src="../scripts/tether.js"></script>
+<script src="../scripts/popper.js"></script>
+<script src="../scripts/bootstrap.js"></script>
+<script type="text/javascript">
+$(function(){
+});
+    $(document).ready(function(){
+        $("a").click(function(){
+        	var radioValue = $("input[name='mode']:checked").val();
+            if(radioValue=="Learn"){
+                alert("Are you sure that you want to enter - " + radioValue + "ing Mode");
+				window.location.href='learn.html';
+            }
+			else if(radioValue=="Test"){
+                alert("Are you sure that you want to enter - " + radioValue + "ing Mode");
+				window.location.href='Student_info.html';
+			}
+			else{
+				alert("Please select an option");
+			}
+        });
+        
+    });
+
+</script>
+</head>
+<body>
+
+<!-- Navigation buttons -->
+<div class="container">
+    <div class="switch-field">
+	
+	
+	
+	<div class="row" id="welcome">
+		<div class="col-3">
+		
+		</div>
+		<div class="col-6" id="h1">
+		<img class="logo" src="../images/flysky_logo.png">
+		<h1 style="padding: 20px;">Welcome to FlySky</h1>
+		</div>
+		<div class="col-3">
+		
+		</div>
+	</div>
+	<div class="row" id="heading">
+		<div class="col-12 text-center">
+		<p>Learn eveything about Flying.</p>
+		</div>
+	</div>
+	
+	<div class="row" id="selmode">
+		<div class="col-12">
+		<h4>Select Mode</h4>
+		</div>
+	</div>
+	<div class="row" id="conrad">
+		<div class="col-6">
+		<input type="radio" id="switch_left" name="mode" value="Learn" checked/>
+		<label for="switch_left">Learning Mode</label>
+		</div>
+		<div class="col-6">
+		<input type="radio" id="switch_right" name="mode" value="Test"/>
+      <label for="switch_right">Test Mode</label>
+		</div>
+	</div>
+    </div>
+	<div class="row">
+		<div class="col-12">
+		<p><a id="submit" data-role="button" data-theme="b">Select</a></p>  
+		<!-- <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r" id="submit">Select</button> -->
+		</div>
+	</div>
+
+</div>
+
+</body>
+</html>

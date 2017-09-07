@@ -1,0 +1,47 @@
+body{
+	background: url("plane4.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#welcome{
+	margin-top:2%;
+}
+
+#h1{
+	margin-top:7%;	
+}
+
+#heading{
+	margin-top:2%;
+}
+
+#selmode{
+	margin-top:5%;
+}
+
+#conrad{
+	margin-top:2%;
+}
+
+
+h4{
+	top:35%;
+	left:33%;
+}
+
+
+#submit{
+	margin-top:7%;
+	left:33%;
+	width: 36%;
+}
+
+.logo {
+	    width: 20%;
+    height: 100px;
+	float: left;
+	
+}
+

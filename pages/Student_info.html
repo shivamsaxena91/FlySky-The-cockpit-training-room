@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/student_style.css"/>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+<script src="../scripts/tether.js"></script>
+<script src="../scripts/popper.js"></script>
+<script src="../scripts/bootstrap.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+   $('#submit').click(function(){
+        if ($('#ID').val() == ""){
+            alert('Please complete the field');
+        }
+		else
+		window.location.href='countdown.html';
+    });
+});
+</script>
+</head>
+<body>
+
+<div class="container">
+<div class="row" style="margin-top:15%">
+<div class="col-12">
+<h1>Test mode: Student Information</h1>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<label for="name">Student ID:</label>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<input type="text" name="SID" placeholder="Enter Student ID..." id="ID">
+</div>
+</div>
+<div class="row">
+<div class="col-6">
+
+<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r" id="submit" >Submit</button>
+</div>
+<div class="col-6">
+<button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-delete" id="quit" onclick="window.location.href='index.html'">Quit</button>
+
+</div>
+</div>
+
+	
+
+
+
+	
+</div>
+</body>
+</html>
