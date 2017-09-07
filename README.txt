@@ -5,7 +5,7 @@ Goal: The goal of the application is to make flight school students familiar wit
 
 2) JavaScript must be enabled
 
-3) Best viewd on laptops and Desktops (Chrome, Firefox)
+3) Best viewed on laptops and Desktops (Chrome, Firefox)
 
 4) Jquery mobile has been removed from test page as it was selecting the radio buttons for future questions.
 
